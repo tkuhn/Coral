@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Codeco Grammar</title>
+
+<style type="text/css">
+h1, h2, h3, h4, h5, h6 { font-family: sans-serif; padding: 0.5em 0em 0em 0em; }
+table td { white-space: nowrap; }
+td { padding: 0.05em 0.05em 0.05em 0.05em; }
+td.cat { padding: 0.05em 0.05em 0.05em 0.8em; }
+td.preterm { text-decoration: underline; padding: 0.05em 0.05em 0.05em 0.8em; }
+td.special { color: red; font-weight: bold; padding: 0.05em 0.05em 0.05em 0.8em; }
+td.specialx { color: red; font-weight: bold; padding: 0.05em 0.05em 0.05em 0.05em; }
+td.arrow { padding: 0.05em 0.2em 0.05em 1em; font-weight: bold; font-size: 120%; }
+td.id { font-size: 80%; padding: 0.05em 1em 0.05em 0.2em; color: gray; }
+td.f { padding: 0em 0.3em 0em 0.3em; }
+table.r { margin: 0.5em 0em 0.5em 0em; empty-cells: show; border-collapse: collapse; }
+table.f {
+  margin: 0em 0em 0em 0.2em;
+  border-style: solid;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  font-size: 80%;
+  empty-cells: show;
+  border-collapse: collapse;
+  height: 2em;
+  background: #DDDDDD;
+}
+span.var {
+  padding: 0em 0.2em 0em 0.2em;
+  border-style: solid;
+  border-width: 1px;
+  background: #CCCCFF;
+  font-size: 80%;
+}
+span.term { font-family: sans-serif; font-size: 80%; color: gray; }
+a[href]:link {color: black; text-decoration: none; }
+a[href]:visited {color: black; text-decoration: none; }
+a[href]:hover {color: blue; text-decoration: none; }
+</style>
+</head>
+
+<body>
+
+<table class="r"><tr>
+  <td class="id">(1)</td>
+  <td class="cat"><a href="#query">query</a></td>
+<td class="arrow"><a name="query"/>~></td>
+  <td class="cat"><a href="#conditions">conditions</a></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(2)</td>
+  <td class="cat"><a href="#conditions">conditions</a></td>
+<td class="arrow"><a name="conditions"/>=></td>
+  <td class="cat"><a href="#condition">condition</a></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(3)</td>
+  <td class="cat"><a href="#conditions">conditions</a></td>
+<td class="arrow"><a name="conditions"/>=></td>
+  <td class="cat"><a href="#condition">condition</a></td>
+  <td class="cat"><a href="#conditions">conditions</a></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(4)</td>
+  <td class="cat"><a href="#condition">condition</a></td>
+<td class="arrow"><a name="condition"/>=></td>
+  <td class="cat">[ <span class="term">there is</span> ]</td>
+  <td class="cat"><a href="#n">n</a></td>
+  <td class="preterm"><a href="#_sentence_delimiter">sentence_delimiter</a></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(5)</td>
+  <td class="cat"><a href="#condition">condition</a></td>
+<td class="arrow"><a name="condition"/>=></td>
+  <td class="cat"><a href="#np">np</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#vp_coord">vp_coord</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 2 </span></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="preterm"><a href="#_sentence_delimiter">sentence_delimiter</a></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(6)</td>
+  <td class="cat"><a href="#np">np</a></td><td><table class="f"><tr><td class="f">def: <strong>&ndash;</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">rel: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="np"/>=></td>
+  <td class="cat"><a href="#n">n</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">rel: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(7)</td>
+  <td class="cat"><a href="#np">np</a></td><td><table class="f"><tr><td class="f">def: <strong>+</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="np"/>=></td>
+  <td class="preterm"><a href="#_ref">ref</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 3 </span></td></tr><tr><td class="f">num: <span class="var"> 4 </span></td></tr><tr><td class="f">string: <span class="var"> 5 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="special">&lt;</td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 3 </span></td></tr><tr><td class="f">num: <span class="var"> 4 </span></td></tr><tr><td class="f">string: <span class="var"> 5 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(8)</td>
+  <td class="cat"><a href="#n">n</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">rel: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="n"/>=></td>
+  <td class="cat"><a href="#el">el</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">string: <span class="var"> 4 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#opt_bare_value">opt_bare_value</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">string: <span class="var"> 4 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#opt_properties">opt_properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 3 </span></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#rel">rel</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 3 </span></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">rel: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(9)</td>
+  <td class="cat"><a href="#el">el</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">num: <span class="var"> 3 </span></td></tr><tr><td class="f">string: <strong></strong></td></tr><tr><td class="f">type: <span class="var"> 4 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="el"/>=></td>
+  <td class="special">#</td><td><span class="var">1</span></td>
+  <td class="preterm"><a href="#_article_noun">article_noun</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">sem: <span class="var"> 5 </span></td></tr><tr><td class="f">type: <span class="var"> 4 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#opt_num">opt_num</a></td><td><table class="f"><tr><td class="f">num: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="special">&gt;</td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">num: <span class="var"> 3 </span></td></tr><tr><td class="f">string: <strong></strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(10)</td>
+  <td class="cat"><a href="#el">el</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">num: <span class="var"> 3 </span></td></tr><tr><td class="f">string: <span class="var"> 4 </span></td></tr><tr><td class="f">type: <strong>leaf</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="el"/>=></td>
+  <td class="special">#</td><td><span class="var">1</span></td>
+  <td class="preterm"><a href="#_article_noun">article_noun</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">sem: <span class="var"> 5 </span></td></tr><tr><td class="f">type: <strong>leaf</strong></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#token">token</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 6 </span></td></tr><tr><td class="f">text: <span class="var"> 4 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#opt_num">opt_num</a></td><td><table class="f"><tr><td class="f">num: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="special">&gt;</td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <span class="var"> 2 </span></td></tr><tr><td class="f">num: <span class="var"> 3 </span></td></tr><tr><td class="f">string: <span class="var"> 4 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(11)</td>
+  <td class="cat"><a href="#el">el</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <strong></strong></td></tr><tr><td class="f">num: <span class="var"> 2 </span></td></tr><tr><td class="f">string: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <strong>leaf</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="el"/>=></td>
+  <td class="cat"><a href="#token">token</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">text: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#opt_num">opt_num</a></td><td><table class="f"><tr><td class="f">num: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="special">&gt;</td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">noun: <strong>token</strong></td></tr><tr><td class="f">num: <strong>&ndash;</strong></td></tr><tr><td class="f">string: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(12)</td>
+  <td class="cat"><a href="#token">token</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">text: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="token"/>=></td>
+  <td class="special">#</td><td><span class="var">1</span></td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <strong>token</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(13)</td>
+  <td class="cat"><a href="#opt_properties">opt_properties</a></td>
+<td class="arrow"><a name="opt_properties"/>=></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(14)</td>
+  <td class="cat"><a href="#opt_properties">opt_properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="opt_properties"/>=></td>
+  <td class="cat">[ <span class="term">with</span> ]</td>
+  <td class="cat"><a href="#properties">properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(15)</td>
+  <td class="cat"><a href="#properties">properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="properties"/>=></td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(16)</td>
+  <td class="cat"><a href="#properties">properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="properties"/>=></td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">and with</span> ]</td>
+  <td class="cat"><a href="#properties">properties</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(17)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>node</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="cat">[ <span class="term">arity</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(18)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>node</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="cat">[ <span class="term">length</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(19)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>leaf</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="special">#</td><td><span class="var">2</span></td>
+  <td class="cat">[ <span class="term">the text</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(20)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>leaf</strong></td></tr><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="cat">[ <span class="term">a text</span> ]</td>
+  <td class="special">#</td><td><span class="var">2</span></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <strong>tok</strong></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(21)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="special">#</td><td><span class="var">3</span></td>
+  <td class="preterm"><a href="#_property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">general: <strong>&ndash;</strong></td></tr><tr><td class="f">sem: <span class="var"> 4 </span></td></tr>  </table></td> <td></td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 5 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(22)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="preterm"><a href="#_property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">general: <strong>+</strong></td></tr><tr><td class="f">sem: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="special">#</td><td><span class="var">4</span></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(23)</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="property"/>=></td>
+  <td class="cat">[ <span class="term">an attribute</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <strong>propname</strong></td></tr>  </table></td> <td></td>
+  <td class="special">#</td><td><span class="var">3</span></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(24)</td>
+  <td class="cat"><a href="#opt_bare_value">opt_bare_value</a></td>
+<td class="arrow"><a name="opt_bare_value"/>=></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(25)</td>
+  <td class="cat"><a href="#opt_bare_value">opt_bare_value</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 1 </span></td></tr><tr><td class="f">string: <strong></strong></td></tr><tr><td class="f">type: <strong>leaf</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="opt_bare_value"/>=></td>
+  <td class="special">#</td><td><span class="var">2</span></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <strong>tok</strong></td></tr><tr><td class="f">type: <strong>token</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(26)</td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="value"/>=></td>
+  <td class="cat">[ <span class="term">of value</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(27)</td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="value"/>=></td>
+  <td class="cat">[ <span class="term">that</span> ]</td>
+  <td class="cat">[ <span class="term">has the value</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(28)</td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="value"/>=></td>
+  <td class="cat">[ <span class="term">that</span> ]</td>
+  <td class="cat">[ <span class="term">has not the value</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(29)</td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="value"/>=></td>
+  <td class="cat">[ <span class="term">that</span> ]</td>
+  <td class="cat">[ <span class="term">matches</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(30)</td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="value"/>=></td>
+  <td class="cat">[ <span class="term">that</span> ]</td>
+  <td class="cat">[ <span class="term">does not match</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 3 </span></td></tr><tr><td class="f">type: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(31)</td>
+  <td class="cat"><a href="#rel">rel</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="rel"/>=></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(32)</td>
+  <td class="cat"><a href="#rel">rel</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr><tr><td class="f">rel: <strong>+</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="rel"/>=></td>
+  <td class="cat">[ <span class="term">that</span> ]</td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(33)</td>
+  <td class="cat"><a href="#vp_coord">vp_coord</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="vp_coord"/>=></td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(34)</td>
+  <td class="cat"><a href="#vp_coord">vp_coord</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="vp_coord"/>=></td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">and</span> ]</td>
+  <td class="cat"><a href="#vp_coord">vp_coord</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(35)</td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="vp"/>=></td>
+  <td class="cat">[ <span class="term">has</span> ]</td>
+  <td class="cat"><a href="#property">property</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(36)</td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="vp"/>=></td>
+  <td class="preterm"><a href="#_v">v</a></td><td><table class="f"><tr><td class="f">dir: <strong>forward</strong></td></tr><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">range: <span class="var"> 3 </span></td></tr><tr><td class="f">sem: <span class="var"> 4 </span></td></tr><tr><td class="f">type: <span class="var"> 5 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#np">np</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 6 </span></td></tr><tr><td class="f">rel: <span class="var"> 7 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <span class="var"> 7 </span></td></tr><tr><td class="f">type: <span class="var"> 5 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(37)</td>
+  <td class="cat"><a href="#vp">vp</a></td><td><table class="f"><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">id: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="vp"/>=></td>
+  <td class="preterm"><a href="#_v">v</a></td><td><table class="f"><tr><td class="f">dir: <strong>backward</strong></td></tr><tr><td class="f">domain: <span class="var"> 1 </span></td></tr><tr><td class="f">range: <span class="var"> 3 </span></td></tr><tr><td class="f">sem: <span class="var"> 4 </span></td></tr><tr><td class="f">type: <span class="var"> 5 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#np">np</a></td><td><table class="f"><tr><td class="f">id: <span class="var"> 6 </span></td></tr><tr><td class="f">rel: <span class="var"> 7 </span></td></tr><tr><td class="f">type: <span class="var"> 3 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <span class="var"> 7 </span></td></tr><tr><td class="f">type: <span class="var"> 5 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(38)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">type: <strong>normal</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(39)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasrole</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">as</span> ]</td>
+  <td class="preterm"><a href="#_role">role</a></td><td><table class="f"><tr><td class="f">sem: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(40)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasdist</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">at a distance of</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">tokens</span> ]</td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(41)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasdist</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">at a distance of</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">to</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">tokens</span> ]</td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(42)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasdepth</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">at a depth of</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">structures</span> ]</td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(43)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasdepth</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">at a depth of</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">to</span> ]</td>
+  <td class="preterm"><a href="#_integer">integer</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr>  </table></td> <td></td>
+  <td class="cat">[ <span class="term">structures</span> ]</td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(44)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasprop</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">via</span> ]</td>
+  <td class="cat">[ <span class="term">the relation type</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <strong>relationtype</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(45)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasprop</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">via</span> ]</td>
+  <td class="preterm"><a href="#_property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>relation</strong></td></tr><tr><td class="f">general: <strong>&ndash;</strong></td></tr><tr><td class="f">sem: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 2 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(46)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasprop</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">via</span> ]</td>
+  <td class="preterm"><a href="#_property">property</a></td><td><table class="f"><tr><td class="f">domain: <strong>relation</strong></td></tr><tr><td class="f">general: <strong>+</strong></td></tr><tr><td class="f">sem: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(47)</td>
+  <td class="cat"><a href="#modifier">modifier</a></td><td><table class="f"><tr><td class="f">rel: <strong>&ndash;</strong></td></tr><tr><td class="f">type: <strong>hasprop</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="modifier"/>=></td>
+  <td class="cat">[ <span class="term">via</span> ]</td>
+  <td class="cat">[ <span class="term">an attribute</span> ]</td>
+  <td class="preterm"><a href="#_string">string</a></td><td><table class="f"><tr><td class="f">text: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <strong>propname</strong></td></tr>  </table></td> <td></td>
+  <td class="cat"><a href="#value">value</a></td><td><table class="f"><tr><td class="f">prop: <span class="var"> 1 </span></td></tr><tr><td class="f">type: <strong>propval</strong></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(48)</td>
+  <td class="cat"><a href="#opt_num">opt_num</a></td><td><table class="f"><tr><td class="f">num: <strong>&ndash;</strong></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="opt_num"/>=></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(49)</td>
+  <td class="cat"><a href="#opt_num">opt_num</a></td><td><table class="f"><tr><td class="f">num: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+<td class="arrow"><a name="opt_num"/>=></td>
+  <td class="preterm"><a href="#_num">num</a></td><td><table class="f"><tr><td class="f">num: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+  <td class="special">/&lt;</td><td><table class="f"><tr><td class="f">num: <span class="var"> 1 </span></td></tr>  </table></td> <td></td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(50)</td>
+  <td class="preterm"><a href="#_sentence_delimiter">sentence_delimiter</a></td>
+<td class="arrow"><a name="_sentence_delimiter"/>=></td>
+  <td class="cat">[ <span class="term">;</span> ]</td>
+</tr></table>
+
+<table class="r"><tr>
+  <td class="id">(51)</td>
+  <td class="preterm"><a href="#_sentence_delimiter">sentence_delimiter</a></td>
+<td class="arrow"><a name="_sentence_delimiter"/>=></td>
+  <td class="cat">[ <span class="term">and</span> ]</td>
+</tr></table>
+
+</body>
+</html>

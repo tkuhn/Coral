@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Coral" default="createwar" basedir=".">
+	
+	<target name="createwar" description="Create WAR file">
+		<jar
+			destfile="coral.war"
+			basedir="war/"
+			includes="**"
+		/>
+	</target>
+	
+    <target name="createzip"
+            description="Create ZIP file">
+        <zip
+            destfile="coral.zip"
+            basedir="."
+            includes="**"
+            excludes="*.war"
+        />
+    </target>
+
+</project>

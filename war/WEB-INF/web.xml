@@ -1,0 +1,61 @@
+<!DOCTYPE web-app 
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <display-name>Coral</display-name>
+  <description>
+  </description>
+
+  <servlet>
+    <servlet-name>CoralExp</servlet-name>
+    <servlet-class>ch.uzh.ifi.attempto.coral.CoralServlet</servlet-class>
+    
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>off</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>lexicons</param-name>
+      <param-value>experiment-lexicon.csv</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>annisurl</param-name>
+      <param-value></param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CoralLeg</servlet-name>
+    <servlet-class>ch.uzh.ifi.attempto.coral.CoralServlet</servlet-class>
+    
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>on</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>lexicons</param-name>
+      <param-value>base-lexicon.csv,german-lexicon.csv</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>annisurl</param-name>
+      <param-value>http://korpling.german.hu-berlin.de/Annis/</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CoralExp</servlet-name>
+    <url-pattern>/exp/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CoralLeg</servlet-name>
+    <url-pattern>/leg/</url-pattern>
+  </servlet-mapping>
+    
+</web-app>

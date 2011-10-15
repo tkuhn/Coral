@@ -1,0 +1,687 @@
+\documentclass[a4paper]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[left=1cm,top=1cm,right=1cm,nohead,nofoot]{geometry}
+\textwidth 19cm
+\pagestyle{empty}
+
+\newcounter{ruleid}
+\newcommand{\ruleid}{{\addtocounter{ruleid}{1} \:\:\: (\arabic{ruleid})} \:\:\: }
+\newcommand{\ruleideval}{{\addtocounter{ruleid}{1} \:\:\: (\underline{\arabic{ruleid}})} \:\:\: }
+
+\newcommand{\possymb}{\ensuremath{\mathord{\#}}}
+\newcommand{\scopeopensymb}{\ensuremath{\mathord{\sslash}}}
+\newcommand{\fwrefsymb}{\ensuremath{\mathord{>}}}
+\newcommand{\sfwrefsymb}{\ensuremath{\mathord{\gg}}}
+\newcommand{\bwrefsymb}{\ensuremath{\mathord{<}}}
+\newcommand{\nbwrefsymb}{\ensuremath{\mathord{\nless}}}
+\newcommand{\cbwrefplus}{\ensuremath{\mathord{^+}}}
+\newcommand{\cbwrefminus}{\ensuremath{\mathord{^-}}}
+\newcommand{\cbwrefplain}[2]{\ensuremath{\bwrefsymb\cbwrefplus #1 \cbwrefminus #2 }}
+\newcommand{\nrulesymb}[0]{\mathrel{:}}
+\newcommand{\scrulesymb}[0]{\mathrel{\sim}}
+\newcommand{\genrulesymb}[1]{\mathrel{#1}}
+
+\newcommand{\fs}[1]{\!\! \left( \!\!\! \scalebox{0.75}{$\begin{array}{l} \\[-2ex] #1 \\[-2ex] \end{array}$} \!\!\! \right)}
+\newcommand{\nrule}[2]{#1 \: \xrightarrow{\displaystyle \: \nrulesymb \:} \: #2}
+\newcommand{\scrule}[2]{#1 \: \xrightarrow{\displaystyle \: \scrulesymb \:} \: #2}
+\newcommand{\lrule}[2]{#1 \: \rightarrow \: #2}
+\newcommand{\scat}[1]{\:\: \mbox{\itshape #1} \:\:}
+\newcommand{\cat}[2]{\:\: \mbox{\itshape #1} \, \fs{#2} }
+\newcommand{\fwref}[1]{\:\: \fwrefsymb \fs{#1} }
+\newcommand{\sfwref}[1]{\:\: \sfwrefsymb \fs{#1} }
+\newcommand{\bwref}[1]{\:\: \bwrefsymb \fs{#1} }
+\newcommand{\nbwref}[1]{\:\: \nbwrefsymb \fs{#1} }
+\newcommand{\cbwref}[2]{\:\: \bwrefsymb\cbwrefplus #1 \!\! \cbwrefminus #2 }
+\newcommand{\cbwrefp}[1]{\:\: \bwrefsymb\cbwrefplus #1 }
+\newcommand{\term}[1]{\:\: [\,\mbox{#1}\,] \:\:}
+\newcommand{\spreterm}[1]{\:\: \mbox{\underline{\itshape #1}} \:\:}
+\newcommand{\preterm}[2]{\:\: \mbox{\underline{\itshape #1}} \, \fs{#2} }
+\newcommand{\pos}[1]{\:\: \possymb {\fboxsep 0.5mm \framebox{\scalebox{0.6}{#1}}} \:\:}
+\newcommand{\scopeopener}[0]{\:\: \scopeopensymb \:\:}
+
+\newcommand{\featv}[2]{\mbox{#1:}\:\fboxsep 0.5mm \framebox{\scalebox{0.8}{#2}}\:\\}
+\newcommand{\featc}[2]{\mbox{#1:}\:\mbox{#2}\\}
+
+\newcommand{\edge}[3]{#1 \: \xrightarrow{\displaystyle #2} \: #3}
+\newcommand{\edot}[0]{\:\mathord{\bullet}\:}
+\newcommand{\epos}[2]{\langle#1,#2\rangle\:\:\:\:}
+
+\begin{document}
+
+{\scriptsize
+\noindent$
+\ruleid
+\scrule{
+  \scat{query}
+}{
+  \scat{conditions}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{conditions}
+}{
+  \scat{condition}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{conditions}
+}{
+  \scat{condition}
+  \scat{conditions}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{condition}
+}{
+  \term{there is}
+  \scat{n}
+  \spreterm{sentence\_delimiter}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{condition}
+}{
+  \cat{np}{\featv{id}{1}\featv{type}{2}}
+  \cat{vp\_coord}{\featv{domain}{2}\featv{id}{1}}
+  \spreterm{sentence\_delimiter}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{np}{\featc{def}{--}\featv{id}{1}\featv{rel}{2}\featv{type}{3}}
+}{
+  \cat{n}{\featv{id}{1}\featv{rel}{2}\featv{type}{3}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{np}{\featc{def}{+}\featv{id}{1}\featc{rel}{--}\featv{type}{2}}
+}{
+  \preterm{ref}{\featv{id}{1}\featv{noun}{3}\featv{num}{4}\featv{string}{5}\featv{type}{2}}
+  \bwref{\featv{id}{1}\featv{noun}{3}\featv{num}{4}\featv{string}{5}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{n}{\featv{id}{1}\featv{rel}{2}\featv{type}{3}}
+}{
+  \cat{el}{\featv{id}{1}\featv{string}{4}\featv{type}{3}}
+  \cat{opt\_bare\_value}{\featv{id}{1}\featv{string}{4}\featv{type}{3}}
+  \cat{opt\_properties}{\featv{domain}{3}\featv{id}{1}}
+  \cat{rel}{\featv{domain}{3}\featv{id}{1}\featv{rel}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{el}{\featv{id}{1}\featv{noun}{2}\featv{num}{3}\featc{string}{}\featv{type}{4}}
+}{
+  \pos{1}
+  \preterm{article\_noun}{\featv{id}{1}\featv{noun}{2}\featv{sem}{5}\featv{type}{4}}
+  \cat{opt\_num}{\featv{num}{3}}
+  \fwref{\featv{id}{1}\featv{noun}{2}\featv{num}{3}\featc{string}{}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{el}{\featv{id}{1}\featv{noun}{2}\featv{num}{3}\featv{string}{4}\featc{type}{leaf}}
+}{
+  \pos{1}
+  \preterm{article\_noun}{\featv{id}{1}\featv{noun}{2}\featv{sem}{5}\featc{type}{leaf}}
+  \cat{token}{\featv{id}{6}\featv{text}{4}}
+  \cat{opt\_num}{\featv{num}{3}}
+  \fwref{\featv{id}{1}\featv{noun}{2}\featv{num}{3}\featv{string}{4}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{el}{\featv{id}{1}\featc{noun}{}\featv{num}{2}\featv{string}{3}\featc{type}{leaf}}
+}{
+  \cat{token}{\featv{id}{1}\featv{text}{3}}
+  \cat{opt\_num}{\featv{num}{2}}
+  \fwref{\featv{id}{1}\featc{noun}{token}\featc{num}{--}\featv{string}{3}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{token}{\featv{id}{1}\featv{text}{2}}
+}{
+  \pos{1}
+  \preterm{string}{\featv{text}{2}\featc{type}{token}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{opt\_properties}
+}{
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{opt\_properties}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \term{with}
+  \cat{properties}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{properties}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \cat{property}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{properties}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \cat{property}{\featv{domain}{1}\featv{id}{2}}
+  \term{and with}
+  \cat{properties}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featc{domain}{node}\featv{id}{1}}
+}{
+  \term{arity}
+  \preterm{integer}{\featv{text}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featc{domain}{node}\featv{id}{1}}
+}{
+  \term{length}
+  \preterm{integer}{\featv{text}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featc{domain}{leaf}\featv{id}{1}}
+}{
+  \pos{2}
+  \term{the text}
+  \preterm{string}{\featv{text}{3}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featc{domain}{leaf}\featv{id}{1}}
+}{
+  \term{a text}
+  \pos{2}
+  \cat{value}{\featc{prop}{tok}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \pos{3}
+  \preterm{property}{\featv{domain}{1}\featc{general}{--}\featv{sem}{4}}
+  \preterm{string}{\featv{text}{5}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \preterm{property}{\featv{domain}{1}\featc{general}{+}\featv{sem}{3}}
+  \pos{4}
+  \cat{value}{\featv{prop}{3}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{property}{\featv{id}{1}}
+}{
+  \term{an attribute}
+  \preterm{string}{\featv{text}{2}\featc{type}{propname}}
+  \pos{3}
+  \cat{value}{\featv{prop}{2}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \scat{opt\_bare\_value}
+}{
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{opt\_bare\_value}{\featv{id}{1}\featc{string}{}\featc{type}{leaf}}
+}{
+  \pos{2}
+  \cat{value}{\featc{prop}{tok}\featc{type}{token}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{value}{\featv{prop}{1}\featv{type}{2}}
+}{
+  \term{of value}
+  \preterm{string}{\featv{text}{3}\featv{type}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{value}{\featv{prop}{1}\featv{type}{2}}
+}{
+  \term{that}
+  \term{has the value}
+  \preterm{string}{\featv{text}{3}\featv{type}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{value}{\featv{prop}{1}\featv{type}{2}}
+}{
+  \term{that}
+  \term{has not the value}
+  \preterm{string}{\featv{text}{3}\featv{type}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{value}{\featv{prop}{1}\featv{type}{2}}
+}{
+  \term{that}
+  \term{matches}
+  \preterm{string}{\featv{text}{3}\featv{type}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{value}{\featv{prop}{1}\featv{type}{2}}
+}{
+  \term{that}
+  \term{does not match}
+  \preterm{string}{\featv{text}{3}\featv{type}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{rel}{\featc{rel}{--}}
+}{
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{rel}{\featv{domain}{1}\featv{id}{2}\featc{rel}{+}}
+}{
+  \term{that}
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{vp\_coord}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{vp\_coord}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+  \term{and}
+  \cat{vp\_coord}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \term{has}
+  \cat{property}{\featv{domain}{1}\featv{id}{2}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \preterm{v}{\featc{dir}{forward}\featv{domain}{1}\featv{range}{3}\featv{sem}{4}\featv{type}{5}}
+  \cat{np}{\featv{id}{6}\featv{rel}{7}\featv{type}{3}}
+  \cat{modifier}{\featv{rel}{7}\featv{type}{5}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{vp}{\featv{domain}{1}\featv{id}{2}}
+}{
+  \preterm{v}{\featc{dir}{backward}\featv{domain}{1}\featv{range}{3}\featv{sem}{4}\featv{type}{5}}
+  \cat{np}{\featv{id}{6}\featv{rel}{7}\featv{type}{3}}
+  \cat{modifier}{\featv{rel}{7}\featv{type}{5}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{type}{normal}}
+}{
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasrole}}
+}{
+  \term{as}
+  \preterm{role}{\featv{sem}{1}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasdist}}
+}{
+  \term{at a distance of}
+  \preterm{integer}{\featv{text}{1}}
+  \term{tokens}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasdist}}
+}{
+  \term{at a distance of}
+  \preterm{integer}{\featv{text}{1}}
+  \term{to}
+  \preterm{integer}{\featv{text}{2}}
+  \term{tokens}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasdepth}}
+}{
+  \term{at a depth of}
+  \preterm{integer}{\featv{text}{1}}
+  \term{structures}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasdepth}}
+}{
+  \term{at a depth of}
+  \preterm{integer}{\featv{text}{1}}
+  \term{to}
+  \preterm{integer}{\featv{text}{2}}
+  \term{structures}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasprop}}
+}{
+  \term{via}
+  \term{the relation type}
+  \preterm{string}{\featv{text}{1}\featc{type}{relationtype}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasprop}}
+}{
+  \term{via}
+  \preterm{property}{\featc{domain}{relation}\featc{general}{--}\featv{sem}{1}}
+  \preterm{string}{\featv{text}{2}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasprop}}
+}{
+  \term{via}
+  \preterm{property}{\featc{domain}{relation}\featc{general}{+}\featv{sem}{1}}
+  \cat{value}{\featv{prop}{1}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{modifier}{\featc{rel}{--}\featc{type}{hasprop}}
+}{
+  \term{via}
+  \term{an attribute}
+  \preterm{string}{\featv{text}{1}\featc{type}{propname}}
+  \cat{value}{\featv{prop}{1}\featc{type}{propval}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{opt\_num}{\featc{num}{--}}
+}{
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \cat{opt\_num}{\featv{num}{1}}
+}{
+  \preterm{num}{\featv{num}{1}}
+  \nbwref{\featv{num}{1}}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \spreterm{sentence\_delimiter}
+}{
+  \term{;}
+}$
+\vspace{2mm}
+
+}
+{\scriptsize
+\noindent$
+\ruleid
+\nrule{
+  \spreterm{sentence\_delimiter}
+}{
+  \term{and}
+}$
+\vspace{2mm}
+
+}
+\end{document}
