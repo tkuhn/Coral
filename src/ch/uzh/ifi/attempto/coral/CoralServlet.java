@@ -39,7 +39,7 @@ public class CoralServlet extends WebContainerServlet {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private Map<String, String> getInitParameters() {
 		Map<String, String> initParameters = new HashMap<String, String>();
 		Enumeration paramEnum = getInitParameterNames();
