@@ -144,7 +144,7 @@ value(prop:P, type:T) =>
 
 { sem:P + '!="' + V + '"' }:
 value(prop:P, type:T) =>
-    ['that', 'has not the value'],
+    ['that', 'does not have the value'],
     $string(text:V, type:T).
 
 { sem:P + '=/' + V + '/' }:

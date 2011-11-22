@@ -31,7 +31,7 @@ opt_bare_value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:''}:opt_bare_
 opt_bare_value([A, leaf, B, C, D, E, '', F, G, H, I, J, K, L], =>({sem:lam(M, ' & @'+N+' '+M+' & #'+A+' _=_ #'+N)}:opt_bare_value(id:A, string:'', type:leaf), (#(N), O)), P/Q)--> #(N), value([R, token, S, T, U, V, W, X, Y, Z, tok, A1, B1, C1], O, P/Q).
 value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+'="'+O+'"'}:value(prop:K, type:B), (['of value'], P)), Q/Q)-->['of value'], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
 value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+'="'+O+'"'}:value(prop:K, type:B), ([that, 'has the value'], P)), Q/Q)-->[that, 'has the value'], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
-value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+'!="'+O+'"'}:value(prop:K, type:B), ([that, 'has not the value'], P)), Q/Q)-->[that, 'has not the value'], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
+value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+'!="'+O+'"'}:value(prop:K, type:B), ([that, 'does not have the value'], P)), Q/Q)-->[that, 'does not have the value'], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
 value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+ =/ + O+ /}:value(prop:K, type:B), ([that, matches], P)), Q/Q)-->[that, matches], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
 value([A, B, C, D, E, F, G, H, I, J, K, L, M, N], =>({sem:K+'!=/'+O+ /}:value(prop:K, type:B), ([that, 'does not match'], P)), Q/Q)-->[that, 'does not match'], $string([R, B, S, T, U, V, W, X, Y, O, Z, A1, B1, C1], P, Q/Q).
 rel([A, B, C, minus, D, E, F, G, H, I, J, K, L, M], =>({sem:''}:rel(rel:minus), []), N/N)-->[].

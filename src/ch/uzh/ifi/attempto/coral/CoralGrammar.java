@@ -725,7 +725,7 @@ public class CoralGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(preterm);
 		addGrammarRule(new GrammarRule(ann, l, false));
 		
-		// {sem:A+'!="'+B+'"'}:value(prop:A, type:C)=>[that, 'has not the value'], $string(text:B, type:C)
+		// {sem:A+'!="'+B+'"'}:value(prop:A, type:C)=>[that, 'does not have the value'], $string(text:B, type:C)
 		l.clear();
 		featureHash.clear();
 		ann = new Annotation();
@@ -738,7 +738,7 @@ public class CoralGrammar extends ch.uzh.ifi.attempto.chartparser.Grammar {
 		l.add(nonterm);
 		term = new Terminal("that");
 		l.add(term);
-		term = new Terminal("has not the value");
+		term = new Terminal("does not have the value");
 		l.add(term);
 		preterm = new Preterminal("string");
 		fm = new FeatureMap();

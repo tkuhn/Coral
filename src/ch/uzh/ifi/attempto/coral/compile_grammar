@@ -4,7 +4,7 @@
 # SWI Prolog has to be installed. This script assumes that the SWI Prolog command is "swipl". If
 # this is different (e.g. "pl"), the script has to be changed accordingly.
 
-export CODECOPATH=/home/tk/Documents/docs/attempto/acewiki/src/ch/uzh/ifi/attempto/codeco
+export CODECOPATH=~/Code/acewiki/src/ch/uzh/ifi/attempto/codeco
 
 swipl -s $CODECOPATH/validate_codeco.pl -g "validate_codeco('coral_grammar.pl')" -t halt
 swipl -s $CODECOPATH/generate_dcg.pl -g "generate_dcg('coral_grammar.pl', 'coral_grammar_dcg.pl')" -t halt
