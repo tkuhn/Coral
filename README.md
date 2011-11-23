@@ -19,4 +19,7 @@ The following publication introduces and explains the Coral system:
 License
 -------
 
-Coral is free software licensed under the GNU Lesser General Public Licence.
+Coral is free software licensed under the GNU Lesser General Public Licence (see licenses/gpl-3.txt
+and http://www.gnu.org/licenses/lgpl.html).
+
+See lib/README.txt for information about the used third-party libraries.
