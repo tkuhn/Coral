@@ -2,22 +2,22 @@ package ch.uzh.ifi.attempto.coral;
 
 import java.util.Map;
 
-import nextapp.echo2.app.Color;
-import nextapp.echo2.app.Column;
-import nextapp.echo2.app.Component;
-import nextapp.echo2.app.Extent;
-import nextapp.echo2.app.Font;
-import nextapp.echo2.app.Insets;
-import nextapp.echo2.app.ResourceImageReference;
-import nextapp.echo2.app.Row;
-import nextapp.echo2.app.Window;
-import nextapp.echo2.app.event.ActionEvent;
-import nextapp.echo2.app.event.ActionListener;
+import nextapp.echo.app.Color;
+import nextapp.echo.app.Column;
+import nextapp.echo.app.Component;
+import nextapp.echo.app.Extent;
+import nextapp.echo.app.Font;
+import nextapp.echo.app.Insets;
+import nextapp.echo.app.ResourceImageReference;
+import nextapp.echo.app.Row;
+import nextapp.echo.app.Window;
+import nextapp.echo.app.WindowPane;
+import nextapp.echo.app.event.ActionEvent;
+import nextapp.echo.app.event.ActionListener;
 import ch.uzh.ifi.attempto.echocomp.HSpace;
 import ch.uzh.ifi.attempto.echocomp.Label;
 import ch.uzh.ifi.attempto.echocomp.SquareButton;
 import ch.uzh.ifi.attempto.echocomp.Style;
-import ch.uzh.ifi.attempto.echocomp.WindowPane;
 
 public class CoralGUI extends Window implements ActionListener {
 

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import nextapp.echo2.app.event.ActionEvent;
-import nextapp.echo2.app.event.ActionListener;
-import ch.uzh.ifi.attempto.chartparser.AbstractOption;
-import ch.uzh.ifi.attempto.chartparser.ConcreteOption;
-import ch.uzh.ifi.attempto.chartparser.NextTokenOptions;
+import nextapp.echo.app.event.ActionEvent;
+import nextapp.echo.app.event.ActionListener;
+import ch.uzh.ifi.attempto.base.ConcreteOption;
+import ch.uzh.ifi.attempto.base.NextTokenOptions;
+import ch.uzh.ifi.attempto.chartparser.CPAbstractOption;
+import ch.uzh.ifi.attempto.chartparser.CPConcreteOption;
+import ch.uzh.ifi.attempto.chartparser.CPNextTokenOptions;
 import ch.uzh.ifi.attempto.chartparser.Preterminal;
 import ch.uzh.ifi.attempto.preditor.DefaultMenuCreator;
 import ch.uzh.ifi.attempto.preditor.DefaultMenuItemComparator;
@@ -65,18 +67,18 @@ public class CoralMenuCreator extends DefaultMenuCreator implements ActionListen
 	
 	public MenuEntry createMenuEntry(ConcreteOption option) {
 		String n = option.getCategoryName();
-		Preterminal c = option.getCategory();
+		Preterminal c = ((CPConcreteOption) option).getCategory();
 		
 		if (n == null) {
 			return new MenuEntry(option, "fixed expression");
 		} else if (n.equals("v")) {
 			return new MenuEntry(option, "relation");
 		} else if (n.equals("article_noun")) {
-			String predef = option.getCategory().getFeature("predef").getString();
+			String predef = c.getFeature("predef").getString();
 			if ("true".equals(predef)) {
 				return new MenuEntry(option, "fixed expression");
 			}
-			String type = option.getCategory().getFeature("type").getString();
+			String type = c.getFeature("type").getString();
 			if ("token".equals(type)) {
 				return new MenuEntry(option, "token");
 			} else if ("leaf".equals(type)) {
@@ -107,7 +109,7 @@ public class CoralMenuCreator extends DefaultMenuCreator implements ActionListen
 
 	public List<SpecialMenuItem> createSpecialMenuItems(NextTokenOptions options) {
 		List<SpecialMenuItem> menuItems = new ArrayList<SpecialMenuItem>();
-		for (AbstractOption o : options.getAbstractOptions("string")) {
+		for (CPAbstractOption o : ((CPNextTokenOptions) options).getAbstractOptions("string")) {
 			String type = o.getCategory().getFeature("type").getString();
 			if ("token".equals(type)) {
 				menuItems.add(new SpecialMenuItem("\"...\"", "token", "string", this));

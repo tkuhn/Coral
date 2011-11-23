@@ -1,7 +1,7 @@
 package ch.uzh.ifi.attempto.coral;
 
-import ch.uzh.ifi.attempto.preditor.DefaultTextOperator;
-import ch.uzh.ifi.attempto.preditor.TextElement;
+import ch.uzh.ifi.attempto.base.DefaultTextOperator;
+import ch.uzh.ifi.attempto.base.TextElement;
 
 public class CoralTextOperator extends DefaultTextOperator {
 	

@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import au.com.bytecode.opencsv.CSVReader;
-import ch.uzh.ifi.attempto.chartparser.AbstractOption;
+import ch.uzh.ifi.attempto.base.AbstractOption;
+import ch.uzh.ifi.attempto.chartparser.CPAbstractOption;
 import ch.uzh.ifi.attempto.chartparser.Category;
 import ch.uzh.ifi.attempto.chartparser.DynamicLexicon;
 import ch.uzh.ifi.attempto.chartparser.LexicalRule;
@@ -70,7 +71,7 @@ public class CoralLexicon implements DynamicLexicon {
 	}
 
 	public List<LexicalRule> getLexRules(AbstractOption option) {
-		Category cat = option.getCategory();
+		Category cat = ((CPAbstractOption) option).getCategory();
 		String catName = cat.getName();
 		List<LexicalRule> lexRules = new ArrayList<LexicalRule>();
 		if (catName.equals("v")) {

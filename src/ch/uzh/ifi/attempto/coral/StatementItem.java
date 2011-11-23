@@ -3,10 +3,10 @@ package ch.uzh.ifi.attempto.coral;
 import java.util.ArrayList;
 import java.util.List;
 
-import nextapp.echo2.app.Component;
-import nextapp.echo2.app.Row;
-import nextapp.echo2.app.event.ActionEvent;
-import nextapp.echo2.app.event.ActionListener;
+import nextapp.echo.app.Component;
+import nextapp.echo.app.Row;
+import nextapp.echo.app.event.ActionEvent;
+import nextapp.echo.app.event.ActionListener;
 import ch.uzh.ifi.attempto.chartparser.Category;
 import ch.uzh.ifi.attempto.chartparser.Nonterminal;
 import ch.uzh.ifi.attempto.chartparser.ParseTreeNode;

@@ -3,9 +3,10 @@ package ch.uzh.ifi.attempto.coral;
 import java.util.ArrayList;
 import java.util.List;
 
-import nextapp.echo2.app.event.ActionEvent;
-import nextapp.echo2.app.event.ActionListener;
+import nextapp.echo.app.event.ActionEvent;
+import nextapp.echo.app.event.ActionListener;
 import ch.uzh.ifi.attempto.chartparser.Category;
+import ch.uzh.ifi.attempto.chartparser.ChartParser;
 import ch.uzh.ifi.attempto.chartparser.Nonterminal;
 import ch.uzh.ifi.attempto.chartparser.ParseTree;
 import ch.uzh.ifi.attempto.chartparser.ParseTreeNode;
@@ -21,6 +22,7 @@ public class CoralPreditor implements ActionListener {
 	private int mode;
 	private QueryEntry ruleEntry;
 	private PreditorWindow preditor;
+	private ChartParser parser;
 	
 	public CoralPreditor(StatementItem item, int mode, QueryEntry ruleEntry) {
 		this.item = item;
@@ -39,9 +41,10 @@ public class CoralPreditor implements ActionListener {
 			context = ruleEntry.getContext(null);
 		}
 		
-		preditor = new PreditorWindow(title, ruleEntry.getGrammar(), "query", context);
+		parser = new ChartParser(ruleEntry.getGrammar(), "query", context);
+		parser.setDynamicLexicon(ruleEntry.getLexicon());
+		preditor = new PreditorWindow(title, parser);
 		preditor.setMenuCreator(new CoralMenuCreator(this));
-		preditor.setDynamicLexicon(ruleEntry.getLexicon());
 		preditor.setTextOperator(new CoralTextOperator());
 		if (mode == 0) {
 			String text = item.getText();
@@ -64,9 +67,9 @@ public class CoralPreditor implements ActionListener {
 				if (preditor.isPossibleNextToken(";")) {
 					preditor.addText("; ");
 				}
-				ParseTree pt = preditor.getParseTree();
+				ParseTree pt = parser.getParseTree();
 				if (pt == null) {
-					pt = preditor.getParseTree("np");
+					pt = parser.getParseTree("np");
 				}
 				if (pt != null) {
 					if (mode == 0) {

@@ -1,14 +1,14 @@
 package ch.uzh.ifi.attempto.coral;
 
-import nextapp.echo2.app.Column;
-import nextapp.echo2.app.Extent;
-import nextapp.echo2.app.Font;
-import nextapp.echo2.app.Insets;
+import nextapp.echo.app.Column;
+import nextapp.echo.app.Extent;
+import nextapp.echo.app.Font;
+import nextapp.echo.app.Insets;
+import nextapp.echo.app.WindowPane;
 import ch.uzh.ifi.attempto.chartparser.ChartParser;
 import ch.uzh.ifi.attempto.chartparser.ParseTree;
 import ch.uzh.ifi.attempto.echocomp.Style;
-import ch.uzh.ifi.attempto.echocomp.WindowPane;
-import echopointng.DirectHtml;
+import echopoint.DirectHtml;
 
 public class DetailsWindow extends WindowPane {
 

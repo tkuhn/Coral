@@ -2,7 +2,7 @@ package ch.uzh.ifi.attempto.coral;
 
 import java.util.List;
 
-import nextapp.echo2.app.Component;
+import nextapp.echo.app.Component;
 
 public interface StatementElement {
 	
