@@ -57,22 +57,22 @@ n(id:ID, type:T, rel:Rel) =>
 { sem:'@' + ID + ' ' + Sem }:
 el(id:ID, type:T, noun:N, string:'', num:Num) =>
     # ID,
-	$article_noun(noun:N, id:ID, sem:Sem, type:T),
-	opt_num(num:Num),
+    $article_noun(noun:N, id:ID, sem:Sem, type:T),
+    opt_num(num:Num),
     >(noun:N, string:'', num:Num, id:ID).
 
 { sem:lam(T, '@' + ID1 + ' ' + Sem + ' & ' + T + ' & #' + ID1 + ' _=_ #' + ID2 ) }:
 el(id:ID1, type:leaf, noun:N, string:St, num:Num) =>
     # ID1,
-	$article_noun(noun:N, id:ID1, sem:Sem, type:leaf),
-	token(text:St, id:ID2),
-	opt_num(num:Num),
+    $article_noun(noun:N, id:ID1, sem:Sem, type:leaf),
+    token(text:St, id:ID2),
+    opt_num(num:Num),
     >(noun:N, string:St, num:Num, id:ID1).
 
 { sem:lam(T, T) }:
 el(id:ID, type:leaf, noun:'', string:St, num:Num) =>
-	token(text:St, id:ID),
-	opt_num(num:Num),
+    token(text:St, id:ID),
+    opt_num(num:Num),
     >(noun:token, string:St, num:minus, id:ID).
 
 { sem:'@' + ID + ' "' + T + '"' }:
@@ -192,20 +192,20 @@ vp_coord(id:ID, domain:D) =>
 
 { sem:lam(P, P) }:
 vp(id:Subj, domain:D) =>
-	[has],
-	property(id:Subj, domain:D).
+    [has],
+    property(id:Subj, domain:D).
 
 { sem:lam(NP, lam(M, NP + ' #' + Subj + ' ' + Sem + M + ' #' + Obj )) }:
 vp(id:Subj, domain:D) =>
-	$v(type:T, dir:forward, sem:Sem, domain:D, range:R),
-	np(id:Obj, type:R, rel:Rel),
-	modifier(type:T, rel:Rel).
+    $v(type:T, dir:forward, sem:Sem, domain:D, range:R),
+    np(id:Obj, type:R, rel:Rel),
+    modifier(type:T, rel:Rel).
 
 { sem:lam(NP, lam(M, NP + ' #' + Obj + ' ' + Sem + M + ' #' + Subj )) }:
 vp(id:Subj, domain:D) =>
-	$v(type:T, dir:backward, sem:Sem, domain:D, range:R),
-	np(id:Obj, type:R, rel:Rel),
-	modifier(type:T, rel:Rel).
+    $v(type:T, dir:backward, sem:Sem, domain:D, range:R),
+    np(id:Obj, type:R, rel:Rel),
+    modifier(type:T, rel:Rel).
 
 { sem:'' }:
 modifier(type:normal) => [].
@@ -271,8 +271,8 @@ modifier(type:hasprop, rel:minus) =>
 opt_num(num:minus) => [].
 
 opt_num(num:Num) =>
-	$num(num:Num),
-	/<(num:Num).
+    $num(num:Num),
+    /<(num:Num).
 
 $sentence_delimiter =>
     [';'].
